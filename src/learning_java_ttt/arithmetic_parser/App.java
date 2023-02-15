@@ -22,7 +22,7 @@ public class App {
 		System.out.println(tokeniser.isAtEnd());
 		
 		for (int i = 0; i < tokens.length; i++) {
-			if (tokens[i] == null) continue;
+			if (tokens[i] == null) break;
 			System.out.println(tokens[i]);
 		}
 	}

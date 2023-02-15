@@ -24,6 +24,9 @@ public class Tokeniser {
 			scanToken();
 		}
 		
+		// Think about how we would remove the null elements from the 
+		// array of tokens
+		
 		return tokens;
 	}
 	
