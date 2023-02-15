@@ -4,7 +4,6 @@ public class App {
 
 	public static void main(String[] args) {
 		String src = "3 + 3 - 50 * 100 / 30";
-
 		// Expect back from the tokeniser
 		/*
 		 * [
@@ -16,13 +15,13 @@ public class App {
 		Tokeniser tokeniser = new Tokeniser(src);
 		Token[] tokens = tokeniser.tokenise();
 		
-		System.out.println(tokeniser.src);
-		System.out.println(tokeniser.tokens);
-		System.out.println(tokeniser.currentPosition);
-		System.out.println(tokeniser.isAtEnd());
+//		System.out.println(tokeniser.src);
+//		System.out.println(tokeniser.tokens);
+//		System.out.println(tokeniser.currentPosition);
+//		System.out.println(tokeniser.isAtEnd());
 		
+		// change to use an enhanced for loop
 		for (int i = 0; i < tokens.length; i++) {
-			if (tokens[i] == null) break;
 			System.out.println(tokens[i]);
 		}
 	}

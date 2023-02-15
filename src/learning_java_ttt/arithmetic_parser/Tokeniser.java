@@ -23,14 +23,23 @@ public class Tokeniser {
 		while (!isAtEnd()) {
 			scanToken();
 		}
+		addToken("EOF", null);
 		
 		// Think about how we would remove the null elements from the 
 		// array of tokens
+		// 1. Find the index of the last non-null element (tokenPosition - 1)
+		// 2. Copy the contents of tokens into a new array,
+		//    with a size of the found index + 1, upto the found index
+		Token[] results = new Token[tokenPosition];
+		for (int i = 0; i < results.length; i++) {
+			results[i] = tokens[i];
+		}
 		
-		return tokens;
+		return results;
 	}
 	
 	public void scanToken() {
+		// Convert this method to use a switch statement instead of if-elseif-else
 		char c = nextChar();
 		
 		if (c == '+' || c == '-' || c == '*' || c == '/') {
