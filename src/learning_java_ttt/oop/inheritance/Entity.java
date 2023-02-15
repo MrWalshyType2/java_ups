@@ -2,7 +2,7 @@ package learning_java_ttt.oop.inheritance;
 
 public class Entity {
 
-	int x,y = 0;
+	private int x,y = 0;
 	
 	public Entity(int x, int y) {
 		this.x = x;

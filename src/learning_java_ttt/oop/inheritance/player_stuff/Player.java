@@ -1,6 +1,8 @@
-package learning_java_ttt.oop.inheritance;
+package learning_java_ttt.oop.inheritance.player_stuff;
 
 import java.util.ArrayList;
+
+import learning_java_ttt.oop.inheritance.Entity;
 
 // A class in Java can inherit from another class
 // according to the rules of access modifiers:
@@ -13,8 +15,8 @@ import java.util.ArrayList;
 // Classes can only inherit from one other class
 public class Player extends Entity {
 
-	int health = 100;
-	String name;
+	private int health = 100;
+	private String name;
 	
 	/* If a parent-/base-/super-type doesn't have a no argument 
 	 * constructor. We must supply a constructor which makes 
@@ -40,7 +42,18 @@ public class Player extends Entity {
 		super(x, y);
 		this.name = name;
 	}
-	
+
+	public int getHealth() {
+		return health;
+	}
+
+	public void setHealth(int health) {
+		this.health = health;
+	}
+
+	public String getName() {
+		return name;
+	}
 	
 }
 
