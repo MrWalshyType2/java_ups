@@ -34,22 +34,37 @@ public class Tokeniser {
 		for (int i = 0; i < results.length; i++) {
 			results[i] = tokens[i];
 		}
-		
 		return results;
 	}
 	
 	public void scanToken() {
 		// Convert this method to use a switch statement instead of if-elseif-else
 		char c = nextChar();
-		
-		if (c == '+' || c == '-' || c == '*' || c == '/') {
-			addToken("operator", String.valueOf(c));
-		} 
-		else if (isNumeric(c)) addToken("int", number(c));
-		else if (c == '\n' || c == ' ') return; // end the method early
-		else {
-			// no matching token, throw an error
-			throw new RuntimeException("Got an unexpected character");
+		// "husiohf s8yh8sf7"
+		switch (c) {
+		case '"':
+			addToken("STRING", string());
+			break;
+		case '+':
+			addToken("PLUS", String.valueOf(c));
+			break;
+		case '-':
+			addToken("MINUS", String.valueOf(c));
+			break;
+		case '*':
+			addToken("STAR", String.valueOf(c));
+			break;
+		case '/':
+			addToken("SLASH", String.valueOf(c));
+			break;
+		case '\n':
+		case ' ':
+		case '\r':
+		case '\t':
+			break;
+		default:
+			if (isNumeric(c)) addToken("int", number(c));
+			else throw new RuntimeException("Got an unexpected character");
 		}
 	}
 	
@@ -68,6 +83,14 @@ public class Tokeniser {
 		else return src.charAt(currentPosition);
 	}
 	
+	public char nextChar() {
+		return src.charAt(currentPosition++);
+	}
+
+	public boolean isAtEnd() {
+		return currentPosition >= src.length();
+	}
+	
 	public String number(char c) {
 		String value = String.valueOf(c);
 		
@@ -78,11 +101,20 @@ public class Tokeniser {
 		return value;
 	}
 	
-	public char nextChar() {
-		return src.charAt(currentPosition++);
-	}
-
-	public boolean isAtEnd() {
-		return currentPosition >= src.length();
+	public String string() {
+		// husiohf s8yh8sf7"
+		String output = "";
+		
+		while (peek() != '"') {
+			output += nextChar();
+			// escape characters
+//			if (peek() == '\\' && peek(1) == 'n') output += "\n";
+//			else if (peek() == '\\') {
+//				nextChar();
+//				output += nextChar();
+//			}
+		}
+		nextChar();
+		return output;
 	}
 }
