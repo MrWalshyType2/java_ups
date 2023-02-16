@@ -63,7 +63,7 @@ public class Tokeniser {
 		case '\t':
 			break;
 		default:
-			if (isNumeric(c)) addToken("int", number(c));
+			if (isNumeric(c)) addToken("INT", number(c));
 			else throw new RuntimeException("Got an unexpected character");
 		}
 	}

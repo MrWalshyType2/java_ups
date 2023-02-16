@@ -18,8 +18,14 @@ public class App {
 		Tokeniser tokeniser = new Tokeniser(src);
 		List<Token> tokens = tokeniser.tokenise();
 		
-		// change to use an enhanced for loop
-		for (Token token : tokens) System.out.println(token);
+//		for (Token token : tokens) System.out.println(token);
+		
+		Parser parser = new Parser(tokens);
+		Expression expression = parser.parse();
+		
+		Interpreter interpreter = new Interpreter();
+		int result = interpreter.interpret(expression);
+		System.out.println(result);
 	}
 
 }
