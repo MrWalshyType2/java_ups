@@ -1,5 +1,8 @@
 package learning_java_ttt.oop.strategy_pattern;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
 
 	public static void main(String[] args) {
@@ -13,6 +16,12 @@ public class App {
 		// we can also supply a different sound strategy (a change of runtime behaviour)
 		sheep.makeNoise(new HungerSoundStrategy());
 		cow.makeNoise(new SleepingSoundStrategy());
+		
+		System.out.println(sheep);
+		
+		
+		SoundStrategy someStrat = SoundStrategy.of("do something");
+		someStrat.perform();
 	}
 
 }

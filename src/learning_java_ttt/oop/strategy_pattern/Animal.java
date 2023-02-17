@@ -20,7 +20,12 @@ public class Animal {
 	public void makeNoise(SoundStrategy differentSound) {
 		System.out.println(type  + " is making a noise:");
 		differentSound.perform();
-		System.out.println();
+		System.out.println(type);
 	}
 	
+	@Override
+	public String toString() {
+        return "animal";
+    }
+
 }
