@@ -1,14 +1,20 @@
 package learning_java_ttt.arithmetic_parser_sol;
 
+// abstract classes cannot be instantiated like the following: Expression e = new Expression();
 public abstract class Expression {
 
+	// Each Expression may accept a Visitor
 	public abstract int accept(ExpressionVisitor visitor);
 	
+	// the Visitor interface
 	public static interface ExpressionVisitor {
 		int visit(BinaryExpression e);
 		int visit(ValueExpression e);
 	}
 
+	// we can have classes and interfaces as members of a class
+	// - we make them static so we can access them without an instance of 
+	//   the class they are in: Expression e = new Expression.BinaryExpression(args...);
 	public static class BinaryExpression extends Expression {
 		Expression leftOperand, rightOperand;
 		Token operator;

@@ -5,7 +5,7 @@ import java.util.List;
 public class App {
 
 	public static void main(String[] args) {
-		String src = "3 + 3 - 50 * 100 / 30";
+		String src = "3 + 4 * 5 / 4 * 10";
 		// Expect back from the tokeniser
 		/*
 		 * [

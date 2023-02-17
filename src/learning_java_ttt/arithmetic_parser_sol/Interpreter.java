@@ -11,6 +11,7 @@ public class Interpreter implements Expression.ExpressionVisitor {
 
 	@Override
 	public int visit(BinaryExpression e) {
+		System.out.println("Interpreting: " + e.operator.value);
 		switch (e.operator.value) {
 		case "+":
 			return interpret(e.leftOperand) + interpret(e.rightOperand);
@@ -27,6 +28,7 @@ public class Interpreter implements Expression.ExpressionVisitor {
 
 	@Override
 	public int visit(ValueExpression e) {
+		System.out.println("VALUE: " + e.value);
 		if (e.type == "INT") return Integer.valueOf(e.value);
 		throw new RuntimeException("Unexpected value");
 	}
